@@ -4,9 +4,18 @@ chrome.webRequest.onHeadersReceived.addListener(
         var responseHeaders = details.responseHeaders;
         if (isEnabled ){
         responseHeaders.push({ name: 'Access-Control-Allow-Origin', value: '*' });
-        responseHeaders.push({ name: 'Access-Control-Allow-Headers', value: 'x-mbx-apikey, Content-Type' });
         responseHeaders.push({ name: 'Access-Control-Allow-Methods', value: 'GET, POST, PUT, DELETE, OPTIONS' });
         responseHeaders.push({ name: 'Access-Control-Allow-Credentials', value: 'true' });
+        }
+        var b = true;
+        for (var i = 0; i < responseHeaders.length; i++) {
+            if (responseHeaders[i].name.toLowerCase() === 'access-control-allow-headers') {
+                responseHeaders[i].value += ', x-mbx-apikey';
+                b = false
+            }
+        }
+        if (b){
+            responseHeaders.push({ name: 'Access-Control-Allow-Headers', value: 'x-mbx-apikey' });
         }
         return { responseHeaders: responseHeaders };
     },
