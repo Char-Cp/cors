@@ -1,19 +1,28 @@
 {
-  "manifest_version": 2,
-  "name": "BINANCE-CORS",
-  "version": "1.0",
-  "permissions": [
-    "activeTab",
-    "webRequest",
-    "webRequestBlocking",
-    "<all_urls>"
-  ],
-  "background": {
-    "scripts": ["background.js"]
-  },
-  "browser_action": {
-    "default_icon": {
-    "45": "close.png"
-  }
-}
+    "manifest_version": 3,
+    "name": "BINANCE-CORS",
+    "version": "2.0",
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "id": "ruleset",
+                "enabled": true,
+                "path": "rules.json"
+            }
+        ]
+    },
+    "permissions": [
+        "declarativeNetRequest",
+        "declarativeNetRequestWithHostAccess",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "*://*.binance.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_icon": "close.png"
+    }
 }

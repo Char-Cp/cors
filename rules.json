@@ -1,0 +1,39 @@
+[
+    {
+        "id": 1,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+	
+            "responseHeaders": [
+                {
+                    "header": "Access-Control-Allow-Origin",
+                    "operation": "set",
+                    "value": "*"
+                },
+                {
+                    "header": "Access-Control-Allow-Methods",
+                    "operation": "set",
+                    "value": "*"
+                },
+                {
+                    "header": "Access-Control-Allow-Credentials",
+                    "operation": "set",
+                    "value": "*"
+                },
+                {
+                    "header": "Access-Control-Allow-Headers",
+                    "operation": "append",
+                    "value": "x-mbx-apikey"
+                }
+            ]
+        },
+        "condition": {
+            "urlFilter": "binance.com",
+            "resourceTypes": [
+                "main_frame",
+                "xmlhttprequest"
+            ]
+        }
+    }
+]
