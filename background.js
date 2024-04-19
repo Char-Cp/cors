@@ -7,7 +7,7 @@ chrome.action.onClicked.addListener((tab) => {
         // 如果当前图标为 "open"，则切换为 "close" 图标
         chrome.action.setIcon({ path: "close.png" });
 		chrome.declarativeNetRequest.updateEnabledRulesets({
-		  disableRulesetIds: ["ruleset"],
+		  disableRulesetIds: ["binance","gate"],
 		}, () => {
 		  console.log("规则已禁用");
 		});
@@ -16,7 +16,7 @@ chrome.action.onClicked.addListener((tab) => {
         // 如果当前图标为 "close"，则切换为 "open" 图标
         chrome.action.setIcon({ path: "open.png" });
 		chrome.declarativeNetRequest.updateEnabledRulesets({
-		  enableRulesetIds: ["ruleset"],
+		  enableRulesetIds: ["binance","gate"],
 		}, () => {
 		  console.log("规则已启用");
 		});

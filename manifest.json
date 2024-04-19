@@ -5,9 +5,13 @@
     "declarative_net_request": {
         "rule_resources": [
             {
-                "id": "ruleset",
+                "id": "binance",
                 "enabled": true,
-                "path": "rules.json"
+                "path": "binance.json"
+            },{
+                "id": "gate",
+                "enabled": true,
+                "path": "gate.json"
             }
         ]
     },
@@ -17,7 +21,8 @@
         "activeTab"
     ],
     "host_permissions": [
-        "*://*.binance.com/*"
+        "*://*.binance.com/*",
+        "*://*.gateio.ws/*"
     ],
     "background": {
         "service_worker": "background.js"
